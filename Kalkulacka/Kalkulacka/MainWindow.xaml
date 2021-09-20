@@ -1,0 +1,197 @@
+﻿<Window x:Class="Kalkulacka.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kalkulacka"
+        mc:Ignorable="d"
+        KeyDown="Window_KeyDown"
+        Title="Calculator" Height="600" Width="500" Icon="icon.png">
+    <Window.Resources>
+        
+        <LinearGradientBrush x:Key="GradientCustom"
+                             StartPoint="0,0"
+                             EndPoint="1,1"
+                             Opacity="0.2"
+                             >
+            <GradientStop Color="WhiteSmoke" Offset="0"></GradientStop>
+            <GradientStop Color="White" Offset="1"></GradientStop>
+            
+
+        </LinearGradientBrush>
+         
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="30"/>
+            <EventSetter Event="Click" Handler="Button_Click"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="White" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+
+                </Setter.Value>
+
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="WhiteSmoke"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#FFB3B3B3"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="#FF2F2F2F"/>
+                </Trigger>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                  Storyboard.TargetProperty="(Button.FontSize)"
+                  From="30" To="60" Duration="0:0:0.4" AutoReverse="True"
+                     />
+                            </Storyboard>
+                        </BeginStoryboard>
+                       <!-- <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                    From="Transparent" To="WhiteSmoke"
+                                    Duration="0:0:0.4" AutoReverse="True"
+                                    />
+                            </Storyboard>
+                        </BeginStoryboard>-->
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Background" Value="{StaticResource GradientCustom}"/>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="TextBlock.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                    Storyboard.TargetProperty="Opacity"
+                                    From="0.2" To="0.8" AutoReverse="True" Duration="0:0:5"
+                                    RepeatBehavior="Forever"
+                                    />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="50"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+        </Style>
+        
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Row="0"
+                   Grid.RowSpan="6"
+                   Grid.ColumnSpan="4">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,5">
+                    <GradientStop Color="Red" Offset="1.3"/>
+                    <GradientStop Color="black" Offset="0"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock 
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            Grid.RowSpan="2"
+            Name="TxtBlock"
+            
+            />
+        <Label Content="GreenCulator 1.0"
+               FontSize="5"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Name="version"
+               />
+        <Label Content="Some Value ..."
+               Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="4"
+                Grid.RowSpan="2"
+                Name="hodnota"
+                
+               ></Label>
+        <Grid Name="kalkulackaCisla" Grid.Row="0" Grid.RowSpan="6" Grid.ColumnSpan="4">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Name="nula" Content="0" Grid.Row="5" Grid.Column="0">
+                <!--<Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.Click">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                Storyboard.TargetName="{Binding ElementName=Button}"
+                                Storyboard.TargetProperty="FontSize"
+                                From="30"
+                                To="60"
+                                Duration="0:0:5"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>-->
+            </Button>
+            <Button Name="jedna" Content="1" Grid.Row="4" Grid.Column="0"/>
+            <Button Name="ctyri" Content="4" Grid.Row="3" Grid.Column="0"/>
+            <Button Name="sedm" Content="7" Grid.Row="2" Grid.Column="0"/>
+            <Button Name="plus" Content="+" Grid.Row="5" Grid.Column="1"/>
+            <Button Name="dva" Content="2" Grid.Row="4" Grid.Column="1"/>
+            <Button Name="pet" Content="5" Grid.Row="3" Grid.Column="1"/>
+            <Button Name="osm" Content="8" Grid.Row="2" Grid.Column="1"/>
+            <Button Name="minus" Content="-" Grid.Row="5" Grid.Column="2"/>
+            <Button Name="tri" Content="3" Grid.Row="4" Grid.Column="2"/>
+            <Button Name="sest" Content="6" Grid.Row="3" Grid.Column="2"/>
+            <Button Name="devet" Content="9" Grid.Row="2" Grid.Column="2"/>
+            <Button x:Name="rovnase" Content="="  Grid.Row="5" Grid.Column="3"/>
+            <Button  Grid.Row="4" Grid.Column="3"/>
+            <Button  Grid.Row="3" Grid.Column="3"/>
+        </Grid>
+        <Button Name="clear" Content="C" Grid.Row="2" Grid.Column="3"/>
+    </Grid>
+</Window>

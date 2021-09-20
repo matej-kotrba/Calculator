@@ -1,0 +1,15 @@
+D:\Programy\C#-projekty\KalkulackaV2\Kalkulacka\Kalkulacka\bin\Debug\Kalkulacka.exe.config
+D:\Programy\C#-projekty\KalkulackaV2\Kalkulacka\Kalkulacka\bin\Debug\Kalkulacka.exe
+D:\Programy\C#-projekty\KalkulackaV2\Kalkulacka\Kalkulacka\bin\Debug\Kalkulacka.pdb
+D:\Programy\C#-projekty\KalkulackaV2\Kalkulacka\Kalkulacka\obj\Debug\Kalkulacka.csproj.AssemblyReference.cache
+D:\Programy\C#-projekty\KalkulackaV2\Kalkulacka\Kalkulacka\obj\Debug\MainWindow.g.cs
+D:\Programy\C#-projekty\KalkulackaV2\Kalkulacka\Kalkulacka\obj\Debug\App.g.cs
+D:\Programy\C#-projekty\KalkulackaV2\Kalkulacka\Kalkulacka\obj\Debug\Kalkulacka_MarkupCompile.cache
+D:\Programy\C#-projekty\KalkulackaV2\Kalkulacka\Kalkulacka\obj\Debug\Kalkulacka_MarkupCompile.lref
+D:\Programy\C#-projekty\KalkulackaV2\Kalkulacka\Kalkulacka\obj\Debug\MainWindow.baml
+D:\Programy\C#-projekty\KalkulackaV2\Kalkulacka\Kalkulacka\obj\Debug\Kalkulacka.g.resources
+D:\Programy\C#-projekty\KalkulackaV2\Kalkulacka\Kalkulacka\obj\Debug\Kalkulacka.Properties.Resources.resources
+D:\Programy\C#-projekty\KalkulackaV2\Kalkulacka\Kalkulacka\obj\Debug\Kalkulacka.csproj.GenerateResource.cache
+D:\Programy\C#-projekty\KalkulackaV2\Kalkulacka\Kalkulacka\obj\Debug\Kalkulacka.csproj.CoreCompileInputs.cache
+D:\Programy\C#-projekty\KalkulackaV2\Kalkulacka\Kalkulacka\obj\Debug\Kalkulacka.exe
+D:\Programy\C#-projekty\KalkulackaV2\Kalkulacka\Kalkulacka\obj\Debug\Kalkulacka.pdb
